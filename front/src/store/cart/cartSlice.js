@@ -12,9 +12,15 @@ export const cartSlice = createSlice({
   reducers: {
     // Acción para agregar un producto al carrito
     addToCart: (state, action) => {
-      return {
-        products: [...state.products, { ...action.payload, amount: 1 }],
-      };
+      const productInCart = state.products.find(product => product._id === action.payload._id);
+
+      if (productInCart) {
+        // Si el producto ya está en el carrito, incrementa su cantidad
+        productInCart.amount += 1;
+      } else {
+        // Si el producto no está en el carrito, agrégalo con una cantidad de 1
+        state.products.push({ ...action.payload, amount: 1 });
+      }
     },
     // Acción para vaciar el carrito
     clearCart: (state) => {
@@ -27,7 +33,7 @@ export const cartSlice = createSlice({
       return {
         products: state.products.map((product) =>
           product.id === action.payload.id
-            ? { ...product, amount: product.amount + 1 }
+            ? { ...product, amount: product.amount+= 1 }
             : product
         ),
       };

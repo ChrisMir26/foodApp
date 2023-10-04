@@ -43,7 +43,6 @@ router.get("/products-by-categories", async (req, res) => {
         ]);
 
         // Envía el resultado (los productos agrupados por categoría) como respuesta al cliente con un código de estado HTTP 200 (OK).
-        console.log("soi productssss",products)
         res.status(200).send({ data: products });
     } catch (error) { // Si hay algún error en el proceso anterior...
         console.log(error); // ...lo imprime en la consola.

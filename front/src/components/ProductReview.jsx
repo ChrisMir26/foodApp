@@ -2,9 +2,14 @@ import React,{useState,useEffect} from 'react'
 import ProductPreviewCard from './ProductPreviewCard'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import {useDispatch} from "react-redux"
+import {addToCart} from "../store/cart/cartSlice"
+
 
 const ProductReview = () => {
     const [products, setProducts] = useState([])
+
+    const dispatch = useDispatch()
 
     const responsive = {
         superLargeDesktop: {
@@ -38,7 +43,7 @@ const ProductReview = () => {
 
 
     const onAddProduct = (product) =>{
-        console.log(product)
+        dispatch(addToCart(product))
     }
   return (
     <div className='container mx-auto pb-4 w-2/3 text-white bg-black '>

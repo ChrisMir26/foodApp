@@ -4,9 +4,9 @@ import AddProduct from './AddProduct'
 
 const ProductPreviewCard = ({product,onAddProduct}) => {
 
-//  const addProduct = (item) =>{
-//     //TODO CREATE ADD PRODCUT
-//  }
+ const addProduct = () =>{
+    onAddProduct(product)
+ }
 
 
   return (
@@ -14,7 +14,7 @@ const ProductPreviewCard = ({product,onAddProduct}) => {
         <img src={product.image} alt={product.name}/>
         <h2 className='pb-2 text-lg'>{product.name}</h2>
         <p className='mb-2 h-20 line-clamp-4'>{product.description}</p>
-        <AddProduct onAddProduct={onAddProduct}/>
+        <AddProduct addProduct={addProduct}/>
     </div>
   )
 }
