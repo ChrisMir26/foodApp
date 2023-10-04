@@ -4,9 +4,9 @@ import AddProduct from './AddProduct'
 
 const ProductPreviewCard = ({product,onAddProduct}) => {
 
- const addProduct = () =>{
-    //TODO CREATE ADD PRODCUT
- }
+//  const addProduct = (item) =>{
+//     //TODO CREATE ADD PRODCUT
+//  }
 
 
   return (
