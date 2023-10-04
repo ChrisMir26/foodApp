@@ -27,7 +27,7 @@ const ProductReview = () => {
       };
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/api/products`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/products`)
         .then(res => res.json())
         .then(data =>{   
             if(data) setProducts(data?.data)
