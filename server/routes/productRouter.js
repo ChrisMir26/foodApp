@@ -7,7 +7,6 @@ const router = express.Router()
 router.get("/products", async(req,res)=>{
     try {
         const products = await Product.find()
-        console.log(`soy productos de productos`, products)
         res.status(200).send({data:products})
     } catch (error) {
         res.status(400).send({error:error})

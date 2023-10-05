@@ -44,6 +44,7 @@ const ProductReview = () => {
 
     const onAddProduct = (product) =>{
         dispatch(addToCart(product))
+        
     }
   return (
     <div className='container mx-auto pb-4 w-2/3 text-white bg-black '>
