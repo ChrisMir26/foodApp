@@ -59,7 +59,7 @@ const onTabSwitch = (newActiveTab) => {
           {
             products &&
              <Tabs
-             list={uniqueCategories}
+             list={uniqueCategories} 
              activeTab={activeTab}
              onTabSwitch={ onTabSwitch}
              /> 
