@@ -19,7 +19,6 @@ router.get("/products-by-categories", async (req, res) => {
     try {
         // Agrega productos desde la base de datos usando el método 'aggregate'
         const productos =await Product.find({});
-        console.log(productos);
 
         const products = await Product.aggregate([
             // Etapa 1: Filtra los productos. (Aquí no estamos filtrando nada realmente porque el criterio de coincidencia está vacío.)

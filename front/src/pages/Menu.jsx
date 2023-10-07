@@ -10,13 +10,14 @@ import addToCart from "../store/cart/cartSlice"
 const Menu = () => {
   const dispatch = useDispatch()
   const products = useSelector(selectAllProducts )
-  const [activeTab,setActiveTab] = useState("")
+  const [activeTab,setActiveTab] = useState("drinks")
   const [activeTabIndex, setActiveTabIndex] = useState(0)
   
 
   useEffect(()=>{
     dispatch(fetchProducts())
-  },[dispatch])
+  },[dispatch,activeTab])
+
 
   let uniqueCategories = [];
 if (products && products.length) {
@@ -31,23 +32,24 @@ if (products && products.length) {
 const onAddProduct = (product) =>{
   dispatch(addToCart(product))}
 
-// const onTabSwitch = (newActiveTab) =>{
-//   setActiveTab(newActiveTab)
-//   const flattenedProducts = products.flat();
-//   let categories = flattenedProducts.map((product)=> product.name)
-//   let index = categories.findIndex(item => item === newActiveTab)
-//   console.log(index)
-//   if(index > -1) return setActiveTabIndex(index)
-//   else return setActiveTabIndex(0)
-// }
+const onTabSwitch = (newActiveTab) =>{
+  setActiveTab(newActiveTab)
+  const flattenedProducts = products.flat();
+  let categories = flattenedProducts.map((product)=> product.name)
+  let index = categories.findIndex(item => item === newActiveTab)
+  console.log(index)
+  if(index > -1) return setActiveTabIndex(index)
+  else return setActiveTabIndex(0)
+}
 
 
 let flattenedProducts = products.flat();
 let filteredProducts = flattenedProducts.filter(product => product.category.name === activeTab);
+console.log(`soy products filtrados`, filteredProducts)
 
-const onTabSwitch = (newActiveTab) => {
-  setActiveTab(newActiveTab);
-}
+// const onTabSwitch = (newActiveTab) => {
+//   setActiveTab(newActiveTab);
+// }
 
 
   return ( 
