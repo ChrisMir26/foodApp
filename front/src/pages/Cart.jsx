@@ -3,6 +3,7 @@ import Button from "../components/Button"
 import { useSelector } from "react-redux"
 import {cartProducts} from "../store/cart/cartSlice"
 import useTabSwitch from "../hooks/useTabSwitch"
+import AddressForm from "../components/AddressForm"
 
 
 const Cart = () => {
@@ -11,7 +12,6 @@ const Cart = () => {
   const [currentTab, handleTabSwitch] = useTabSwitch(tabs, "Summary")
 
 
-  console.log(`soy cartttttt`, cart)
 
     if(!cart || cart?.length === 0){
       return(
@@ -21,7 +21,7 @@ const Cart = () => {
         </div>
       )
     }
-
+ 
   return (
     <div className="bg-white h-screen text-black mx-auto mt-2 border border-gray-200 p-4 md:w-2/3 rounded-lg shadow-md sm:p-6 lg:p-8">
             <Tabs list={tabs} onTabSwitch={handleTabSwitch} activeTab={currentTab} />
@@ -32,7 +32,8 @@ const Cart = () => {
                 </div>
             </div>
             <div className={`tabs ${currentTab !== 'Delivery' ? 'hidden' : ''}`}>
-                <h1>addresform</h1>
+                <AddressForm/>
+            
             </div>
             <div className={`tabs ${currentTab !== 'Payment' ? 'hidden' : ''}`}>
                 <h1>stripe</h1>
