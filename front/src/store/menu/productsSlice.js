@@ -70,7 +70,7 @@ export const fetchProducts = createAsyncThunk(
 );
 
 // Selector para obtener la lista de productos desde el estado
-export const selectAllProducts = (state) => state.products.products;
+export const selectAllProducts = (state) => state.products.products
 
 // import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 

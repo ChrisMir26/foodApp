@@ -45,12 +45,11 @@ const onTabSwitch = (newActiveTab) =>{
 
 let flattenedProducts = products.flat();
 let filteredProducts = flattenedProducts.filter(product => product.category.name === activeTab);
-console.log(`soy products filtrados`, filteredProducts)
 
 // const onTabSwitch = (newActiveTab) => {
 //   setActiveTab(newActiveTab);
 // }
-
+console.log('onTabSwitch en Menu:', onTabSwitch);
 
   return ( 
     <div className='bg-white h-[700px]'>
@@ -63,7 +62,7 @@ console.log(`soy products filtrados`, filteredProducts)
              <Tabs
              list={uniqueCategories} 
              activeTab={activeTab}
-             onTabSwitch={ onTabSwitch}
+             onTabSwitch={onTabSwitch}
              /> 
           }
           <div className='flex flex-row mx-3'>
