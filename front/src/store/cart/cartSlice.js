@@ -30,23 +30,17 @@ export const cartSlice = createSlice({
     },
     // Acción para incrementar la cantidad de un producto en el carrito
     incrementProductAmount: (state, action) => {
-      return {
-        products: state.products.map((product) =>
-          product.id === action.payload.id
-            ? { ...product, amount: product.amount+= 1 }
-            : product
-        ),
-      };
+      const product = state.products.find((p) => p._id === action.payload);
+      if (product) {
+        product.amount += 1;
+      }
     },
     // Acción para decrementar la cantidad de un producto en el carrito
     decrementProductAmount: (state, action) => {
-      return {
-        products: state.products.map((product) =>
-          product.id === action.payload.id
-            ? { ...product, amount: product.amount - 1 }
-            : product
-        ),
-      };
+      const product = state.products.find((p) => p._id === action.payload);
+      if (product && product.amount > 0) {
+        product.amount -= 1;
+      }
     },
   },
 });

@@ -4,7 +4,8 @@ import { useSelector } from "react-redux"
 import {cartProducts} from "../store/cart/cartSlice"
 import useTabSwitch from "../hooks/useTabSwitch"
 import AddressForm from "../components/AddressForm"
-
+import {ProductSummary} from "../components/ProductSummary"
+  
 
 const Cart = () => {
   const cart = useSelector(cartProducts)
@@ -23,16 +24,16 @@ const Cart = () => {
     }
  
   return (
-    <div className="bg-white h-screen text-black mx-auto mt-2 border border-gray-200 p-4 md:w-2/3 rounded-lg shadow-md sm:p-6 lg:p-8">
+    <div className="bg-white h-100%  text-black mx-auto mt-2 border border-gray-200 p-4 md:w-2/3 rounded-lg shadow-md sm:p-6 lg:p-8">
             <Tabs list={tabs} onTabSwitch={handleTabSwitch} activeTab={currentTab} />
             <div className={`tabs ${currentTab !== 'Summary' ? 'hidden' : ''}`}>
-                <h1>PRODCUTSUMMARY</h1>
+                <ProductSummary />
                 <div className="flex justify-end p-2">
                     <Button variant="dark" className="flex items-center" onClick={()=>handleTabSwitch('Delivery')}><span className="mr-1">Next</span></Button>
                 </div>
             </div>
             <div className={`tabs ${currentTab !== 'Delivery' ? 'hidden' : ''}`}>
-                <AddressForm/>
+                <AddressForm onTabSwitch={handleTabSwitch}/>
             
             </div>
             <div className={`tabs ${currentTab !== 'Payment' ? 'hidden' : ''}`}>

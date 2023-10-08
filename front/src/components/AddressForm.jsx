@@ -1,14 +1,17 @@
 import Button from "../components/Button"
 import { useForm } from 'react-hook-form';
+import { useDispatch } from "react-redux";
+import {setAddress} from "../store/userInfo/addressSlice"
 
 
 
-const AddressForm = () => {
-
+const AddressForm = ({onTabSwitch}) => {
+    const dispatch = useDispatch()
     const {register, handleSubmit} =  useForm()
 
     const onSubmit = (data) =>{
-        console.log(data)
+        dispatch(setAddress(data))
+        onTabSwitch("Payment")
     }
 
   return (
