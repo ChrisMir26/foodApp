@@ -3,7 +3,6 @@ import React from 'react'
 const TabItem = ({title,index,active,setActive}) => {
 
     const className = active ? 'border-b-yellow-400' : "border-none text-slate-400"
-    console.log('onTabSwitch en Tabs:');
 
   return (
     <div className='nav-item px-2'>

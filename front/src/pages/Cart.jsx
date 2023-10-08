@@ -5,7 +5,7 @@ import {cartProducts} from "../store/cart/cartSlice"
 import useTabSwitch from "../hooks/useTabSwitch"
 import AddressForm from "../components/AddressForm"
 import {ProductSummary} from "../components/ProductSummary"
-  
+import { StripeWrapper  } from "../components/PaymentForm"  
 
 const Cart = () => {
   const cart = useSelector(cartProducts)
@@ -37,7 +37,7 @@ const Cart = () => {
             
             </div>
             <div className={`tabs ${currentTab !== 'Payment' ? 'hidden' : ''}`}>
-                <h1>stripe</h1>
+                <StripeWrapper/>
             </div>
         </div>
     )

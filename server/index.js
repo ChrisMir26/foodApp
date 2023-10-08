@@ -85,7 +85,6 @@ app.use("/api",productRoutes)
 app.post(`/create-payment-intent`,async(req,res)=>{
     try {
         const { orderItems, shippingAddress, userId } = req.body;
-        console.log(shippingAddress);
 
         const totalPrice = calculateOrderAmount(orderItems);
 
@@ -102,15 +101,14 @@ app.post(`/create-payment-intent`,async(req,res)=>{
             user: ''
         })
 
-         await order.save();
+        // await order.save();
 
         const paymentIntent = await stripeInstance.paymentIntents.create({
             amount: totalPrice,
             currency: 'usd'
         })
 
-        console.log(`soy payment intent`, paymentIntent)
-        res.send({
+        res.json({
             clientSecret: paymentIntent.client_secret
         })
     } catch (error) {

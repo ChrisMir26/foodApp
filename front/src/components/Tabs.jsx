@@ -4,7 +4,6 @@ import TabItem from './TabItem'
 const Tabs = ({list,activeTab,onTabSwitch}) => {
     
     let active = activeTab === "drinks" ? list[0] : activeTab
-    console.log('onTabSwitch en Tabs:', onTabSwitch);
 
   return (
     <div className='sticky z-1900 bg-white '>

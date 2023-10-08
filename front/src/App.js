@@ -6,7 +6,7 @@ import Register from "./pages/Register"
 import Menu from "./pages/Menu"
 import Home from "./pages/Home"
 import Cart from "./pages/Cart"
-import {PaymentSucces} from "./pages/PaymentSucces"
+import PaymentSucces from "./pages/PaymentSucces"
 
 
 function App() {
