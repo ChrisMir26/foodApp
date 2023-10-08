@@ -7,6 +7,7 @@ import Menu from "./pages/Menu"
 import Home from "./pages/Home"
 import Cart from "./pages/Cart"
 import PaymentSucces from "./pages/PaymentSucces"
+import { Footer } from "./components/Footer";
 
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
         <Route path="/menu" element={<Menu />}/>
         <Route path="/cart" element={<Cart />}/>
         <Route path="/payment-success" element={<PaymentSucces />}/>
-
       </Routes>
+      <Footer/>
 
     </div>
   );
