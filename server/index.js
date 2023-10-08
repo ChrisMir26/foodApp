@@ -7,6 +7,7 @@ import productRoutes from "./routes/productRouter.js"
 import stripe from 'stripe';
 import e from "express"
 import Order from "./models/orderModel.js"
+import userRouter from "./routes/userRouter.js"
 
 const app = express()
 
@@ -81,6 +82,7 @@ app.use(
   
 
 app.use("/api",productRoutes)
+app.use("/api",userRouter)
 
 app.post(`/create-payment-intent`,async(req,res)=>{
     try {
@@ -101,7 +103,7 @@ app.post(`/create-payment-intent`,async(req,res)=>{
             user: ''
         })
 
-        // await order.save();
+       //  await order.save();
 
         const paymentIntent = await stripeInstance.paymentIntents.create({
             amount: totalPrice,
