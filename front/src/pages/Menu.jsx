@@ -5,7 +5,7 @@ import ProductDetailCard from '../components/ProductDetailCard'
 import Tabs from '../components/Tabs'
 import { fetchProducts, selectAllProducts } from '../store/menu/productsSlice'
 import addToCart from "../store/cart/cartSlice"
- 
+import "../App.css"
 
 
 const Menu = () => {
@@ -13,11 +13,14 @@ const Menu = () => {
   const products = useSelector(selectAllProducts )
   const [activeTab,setActiveTab] = useState("drinks")
   const [activeTabIndex, setActiveTabIndex] = useState(0)
+  const [loading, setLoading] = useState(true)
   
-
   useEffect(()=>{
     dispatch(fetchProducts())
-  },[dispatch,activeTab])
+      .then(() => setLoading(false))
+      .catch(() => setLoading(false));
+  },[dispatch,activeTab]);
+  
 
 
   let uniqueCategories = [];
@@ -67,12 +70,15 @@ console.log('onTabSwitch en Menu:', onTabSwitch);
              /> 
           }
           <div className='flex flex-wrap justify-center mx-3'>
+
           {
-  filteredProducts?.map((product, index) => {
-    return (
-      <ProductDetailCard key={index} product={product} onAddProduct={onAddProduct} />
-    );
-  })
+  loading 
+  ? <div className='spinner mx-auto'></div>  
+  : filteredProducts?.map((product, index) => {
+      return (
+        <ProductDetailCard key={index} product={product} onAddProduct={onAddProduct} />
+      );
+    })
 }
              </div>
              </div>
