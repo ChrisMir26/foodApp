@@ -4,10 +4,13 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import {useDispatch} from "react-redux"
 import {addToCart} from "../store/cart/cartSlice"
+import './spinner.css'
+
 
 
 const ProductReview = () => {
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const dispatch = useDispatch()
 
@@ -35,10 +38,15 @@ const ProductReview = () => {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/products`)
         .then(res => res.json())
         .then(data =>{   
-            if(data) setProducts(data?.data)
+            if(data) {
+              setProducts(data?.data)
+              setLoading(false)
+            }
             else throw new Error(`sorry we have an issue`)
         })
         .catch((error)=> console.log(error))
+        setLoading(false)
+
     },[])
 
 
@@ -49,6 +57,8 @@ const ProductReview = () => {
   return (
     <div className='container mx-auto pb-4 w-2/3 text-white bg-black '>
         <h2 className='text-white'> Products</h2>
+        {loading && loading ?
+        <div className='spinner mx-auto ' ></div> :
         <Carousel responsive={responsive} >
        {
                 products.length > 0 && products.map((product, index) => {
@@ -57,7 +67,7 @@ const ProductReview = () => {
                 
             }
             
-        </Carousel>
+        </Carousel>}
   
         
     </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+import { Link}from "react-router-dom"
 
 const Banner = () => {
   return (
@@ -12,7 +13,7 @@ const Banner = () => {
                 Get Started Today!
             </p>
             <div className="btn-container">
-                <Button>Order Now</Button>
+                <Link to="/menu"> <Button >Order Now</Button> </Link>
                 <a href="/menu" className='text-yellow-400 hover:text-yellow-500 font-bold text-decoration-line px-3'>
                     See Menu
                 </a>
