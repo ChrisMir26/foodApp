@@ -12,7 +12,7 @@ export const cartSlice = createSlice({
   reducers: {
     // Acción para agregar un producto al carrito
     addToCart: (state, action) => {
-      const productInCart = state.products.find(product => product._id === action.payload._id);
+      const productInCart = state.products.find(product => product._id === action.payload);
 
       if (productInCart) {
         // Si el producto ya está en el carrito, incrementa su cantidad
