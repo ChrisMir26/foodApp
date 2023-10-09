@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import config from "../../config";
 
 // Definición del estado inicial de la slice
 const initialState = {
@@ -57,7 +58,7 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     // Realiza una solicitud HTTP para obtener datos de productos
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/products-by-categories`
+      `${config.BACKEND_URL}/products-by-categories`
     );
 
     if (!response.ok) {

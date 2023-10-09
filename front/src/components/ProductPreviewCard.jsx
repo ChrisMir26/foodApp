@@ -9,7 +9,6 @@ const ProductPreviewCard = ({product,onAddProduct}) => {
 
  const addProduct = () =>{
     onAddProduct(product)
-   // localStorage.setItem('cart', JSON.stringify(cart.products));
 
  }
 

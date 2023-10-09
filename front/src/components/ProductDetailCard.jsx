@@ -7,7 +7,6 @@ import {
 
 const ProductDetailCard = ({product,onAddProduct}) => {
     const dispatch = useDispatch();
-    console.log("soi id pa ",product._id)
 
   return (
     <div className='p-8 m-4 rounded-lg bg-slate-50 max-w-[300px] min-h-[500px]'>
