@@ -6,6 +6,7 @@ import 'react-multi-carousel/lib/styles.css';
 import {useDispatch,useSelector} from "react-redux"
 import {addToCart} from "../store/cart/cartSlice"
 import './spinner.css'
+import config from '../config';
 
 
 
@@ -36,7 +37,7 @@ const ProductReview = () => {
       };
 
     useEffect(()=>{
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/products`)
+        fetch(`${config.BACKEND_URL}/products`)
         .then(res => res.json())
         .then(data =>{   
             if(data) {
