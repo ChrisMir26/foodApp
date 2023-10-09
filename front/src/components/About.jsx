@@ -3,7 +3,7 @@ import aboutImg from "../assets/about-image.png"
 
 const About = () => {
   return (
-    <div className="bg-white w-full">
+    <div className="bg-white w-full" id="about">
       <div className="p-24 flex flex-col gap-10 lg:flex-row lg:gap-0 lg:justify-center">
         <div className="lg:w-[50%] flex flex-col justify-center align-center">
           <h2 className="text-2xl font-medium mb-5">About us</h2>

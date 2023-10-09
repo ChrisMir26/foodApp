@@ -1,11 +1,16 @@
 import React from 'react'
 import AddProduct from './AddProduct'
+import { useSelector } from 'react-redux'
 
 
 const ProductPreviewCard = ({product,onAddProduct}) => {
+  const cart = useSelector((state) => state.cart);
+
 
  const addProduct = () =>{
     onAddProduct(product)
+   // localStorage.setItem('cart', JSON.stringify(cart.products));
+
  }
 
 
