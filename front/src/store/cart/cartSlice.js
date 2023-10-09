@@ -38,8 +38,11 @@ export const cartSlice = createSlice({
     // Acción para decrementar la cantidad de un producto en el carrito
     decrementProductAmount: (state, action) => {
       const product = state.products.find((p) => p._id === action.payload);
-      if (product && product.amount > 0) {
+      if (product && product.amount > 1) {
         product.amount -= 1;
+      }
+      else{
+        state.products = state.products.filter((item) => item._id !== action.payload);
       }
     },
   },

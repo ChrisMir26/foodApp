@@ -14,10 +14,10 @@ export const ProductSummary = () =>{
           {isCartEmpty ? (
             <h1>Your Cart is empty</h1>
           ) : (
-            cart.map((product, index) => {
+            cart?.map((product, index) => {
               // Solo retornamos la tarjeta si product.amount es diferente de 0
               if (product.amount !== 0) {
-                return <ProductSummaryCard product={product} key={index} />;
+                return <ProductSummaryCard product={product} key={product._id} />;
               }
               return null;
             })

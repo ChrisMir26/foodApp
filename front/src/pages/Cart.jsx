@@ -14,16 +14,16 @@ const Cart = () => {
 
   const isCartEmpty = cart.every((product) => product.amount === 0);
 
-  if (!cart || cart?.length === 0) {
-    return (
-      <div className="bg-white h-full text-black flex  justify-center p-4">
-        <h1>Your Cart is empty</h1>
-      </div>
-    );
-  }
+  // if (!cart || cart?.length === 0) {
+  //   return (
+  //     <div className="bg-white h-full text-black flex  justify-center p-4">
+  //       <h1>Your Cart is empty</h1>
+  //     </div>
+  //   );
+  // }
 
   return (
-    <div className="bg-white h-auto text-black m-5 mt-2 border  border-gray-200 p-10   md:w-2/3 rounded-lg shadow-md sm:p-6 lg:p-8">
+    <div className="bg-white h-auto text-black  mt-2 border  border-gray-200 p-10  m-auto mb-5  md:w-2/3 rounded-lg shadow-md sm:p-6 lg:p-8">
       <Tabs list={tabs} onTabSwitch={handleTabSwitch} activeTab={currentTab} />
       <div className={`tabs ${currentTab !== "Summary" ? "hidden" : ""}`}>
         <ProductSummary />
