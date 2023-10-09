@@ -46,7 +46,6 @@ useEffect(() => {
  
 }, []); 
 
-console.log(isLoggedIn )
   return (
     <nav id="header" className="bg-black text-white">
 <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
@@ -62,7 +61,7 @@ console.log(isLoggedIn )
     <div className="flex items-center justify-center space-x-4">
         <Link to="/cart" className="mr-4 relative">
         <FaShoppingCart style={{fontSize:"1.7rem"}}/>
-            {cartCount > 0 ? <div className="rounded-full bg-yellow-400 text-white inline-flex justify-center items-center w-full absolute -top-1 -right-1">{cartCount}</div> : null}
+            {cartCount > 0 ? <div className="rounded-full bg-yellow-400 text-white inline-flex justify-center items-center w-full absolute -top-6 -right-1">{cartCount}</div> : null}
         </Link>
         {
             isLoggedIn ? 

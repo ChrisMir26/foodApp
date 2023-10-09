@@ -12,8 +12,8 @@ const ProductPreviewCard = ({product,onAddProduct}) => {
   return (
     <div className='w-full p-4 m-2 rounded text-white bg-gradient-to-b from-slate-600 to-transparent text-center'>
         <img src={product.image} alt={product.name}/>
-        <h2 className='pb-2 text-lg'>{product.name}</h2>
-        <p className='mb-2 h-20 line-clamp-4'>{product.description}</p>
+        <h2 className='pb-2 text:md md:text-lg'>{product.name}</h2>
+        <p className='mb-2 h-30 line-clamp-4 text-sm'>{product.description}</p>
         <AddProduct addProduct={addProduct}/>
     </div>
   )
